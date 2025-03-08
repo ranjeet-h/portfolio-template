@@ -1,0 +1,422 @@
+{
+  "siteMetadata": {
+    "title": "Professional Portfolio",
+    "description": "My professional portfolio showcasing my skills, experience and projects",
+    "author": "John Doe",
+    "siteUrl": "https://johndoe-portfolio.com",
+    "twitterUsername": "@johndoe",
+    "favicon": "/favicon.ico"
+  },
+  "theme": {
+    "primaryColor": "#4ca1af",
+    "secondaryColor": "#2c3e50",
+    "accentColor": "#e74c3c",
+    "textColor": "#ffffff",
+    "secondaryTextColor": "#bdc3c7",
+    "backgroundColor": "#1a1a1a",
+    "cardBackgroundColor": "rgba(44, 62, 80, 0.8)",
+    "fontPrimary": "'Poppins', sans-serif",
+    "fontSecondary": "'Montserrat', sans-serif"
+  },
+  "header": {
+    "name": "John Doe",
+    "title": "Senior React Developer",
+    "backgroundType": "gradient", 
+    "backgroundImage": "",
+    "profileImage": "https://picsum.photos/seed/profile/200/300",
+    "typedStrings": [
+      "React Developer", 
+      "UI/UX Enthusiast",
+      "Frontend Architect",
+      "Performance Optimizer"
+    ],
+    "ctaText": "Contact Me",
+    "ctaUrl": "#contact"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "My journey as a developer",
+    "description": "Senior React Developer with 4.5 years of expertise in building high-performance web applications. Specialized in creating scalable frontend architectures, optimizing application performance, and implementing modern UI/UX practices. Proven track record of leading teams and delivering enterprise-level solutions that drive business growth.",
+    "yearsOfExperience": 4.5,
+    "email": "john.doe@example.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "San Francisco, CA",
+    "resumeUrl": "/resume.pdf",
+    "imageUrl": "https://picsum.photos/seed/about/800/1200"
+  },
+  "social": {
+    "github": "https://github.com/johndoe",
+    "linkedin": "https://linkedin.com/in/johndoe",
+    "twitter": "https://twitter.com/johndoe",
+    "instagram": "",
+    "facebook": "",
+    "youtube": "",
+    "medium": "",
+    "devto": "",
+    "dribbble": "",
+    "behance": ""
+  },
+  "skills": {
+    "sectionTitle": "My Skills",
+    "sectionSubtitle": "What I bring to the table",
+    "categories": [
+      {
+        "name": "Frontend",
+        "icon": "code",
+        "skills": [
+          {"name": "React.js", "level": 95},
+          {"name": "Next.js", "level": 90},
+          {"name": "Redux", "level": 85},
+          {"name": "TypeScript", "level": 90},
+          {"name": "JavaScript (ES6+)", "level": 95},
+          {"name": "HTML5/CSS3", "level": 90},
+          {"name": "Tailwind CSS", "level": 85},
+          {"name": "Material-UI", "level": 80},
+          {"name": "Styled Components", "level": 90},
+          {"name": "Framer Motion", "level": 85},
+          {"name": "React Query", "level": 80},
+          {"name": "React Hook Form", "level": 85},
+          {"name": "Webpack", "level": 75},
+          {"name": "Vite", "level": 80}
+        ]
+      },
+      {
+        "name": "Backend",
+        "icon": "server",
+        "skills": [
+          {"name": "Node.js", "level": 80},
+          {"name": "Express.js", "level": 85},
+          {"name": "MongoDB", "level": 75},
+          {"name": "PostgreSQL", "level": 70},
+          {"name": "RESTful APIs", "level": 90},
+          {"name": "GraphQL", "level": 80},
+          {"name": "Firebase", "level": 85},
+          {"name": "AWS Lambda", "level": 75},
+          {"name": "Microservices", "level": 75}
+        ]
+      },
+      {
+        "name": "Tools & Technologies",
+        "icon": "tools",
+        "skills": [
+          {"name": "Git", "level": 90},
+          {"name": "Docker", "level": 75},
+          {"name": "Jenkins", "level": 65},
+          {"name": "Jest", "level": 80},
+          {"name": "React Testing Library", "level": 85},
+          {"name": "CI/CD", "level": 75},
+          {"name": "AWS", "level": 70},
+          {"name": "Jira", "level": 85},
+          {"name": "Figma", "level": 70},
+          {"name": "Performance Optimization", "level": 85}
+        ]
+      },
+      {
+        "name": "Soft Skills",
+        "icon": "users",
+        "skills": [
+          {"name": "Team Leadership", "level": 90},
+          {"name": "Agile/Scrum", "level": 85},
+          {"name": "Technical Mentoring", "level": 90},
+          {"name": "Problem Solving", "level": 95},
+          {"name": "Code Reviews", "level": 90},
+          {"name": "Documentation", "level": 85}
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "sectionTitle": "Work Experience",
+    "sectionSubtitle": "My professional journey",
+    "showCompanyLogos": true,
+    "jobs": [
+      {
+        "company": "Tech Solutions Inc.",
+        "position": "Senior React Developer",
+        "period": "2022 - Present",
+        "location": "San Francisco, CA",
+        "logoUrl": "https://picsum.photos/seed/tech-solutions/200/300",
+        "description": "Lead developer for enterprise-level React applications serving 1M+ users, focusing on performance optimization and team leadership.",
+        "achievements": [
+          "Architected and implemented a microservices-based frontend architecture, reducing deployment time by 60%",
+          "Led the migration from Create React App to Next.js, improving initial load time by 40% and SEO performance",
+          "Implemented advanced caching strategies with React Query, reducing API calls by 70%",
+          "Mentored a team of 5 junior developers, conducting regular code reviews and technical training sessions",
+          "Established coding standards and best practices, improving code quality and reducing technical debt by 45%"
+        ],
+        "technologies": ["React", "Next.js", "TypeScript", "Redux", "Node.js", "GraphQL", "CI/CD", "AWS"]
+      },
+      {
+        "company": "Digital Innovations Co.",
+        "position": "React Developer",
+        "period": "2020 - 2022",
+        "location": "Boston, MA",
+        "logoUrl": "https://picsum.photos/seed/digital-innovations/200/300",
+        "description": "Full-stack React developer working on high-traffic e-commerce platforms and business applications.",
+        "achievements": [
+          "Developed a reusable component library used across 8 different projects, reducing development time by 40%",
+          "Implemented real-time order tracking system using WebSocket, improving customer satisfaction by 35%",
+          "Optimized Redux store structure and implemented Redux Toolkit, reducing boilerplate code by 60%",
+          "Created automated testing suite with 90% code coverage using Jest and React Testing Library",
+          "Integrated multiple payment gateways and improved checkout flow, increasing conversion rate by 25%"
+        ],
+        "technologies": ["React", "Redux", "JavaScript", "Node.js", "MongoDB", "WebSocket", "Jest", "CI/CD"]
+      },
+      {
+        "company": "StartUp Tech",
+        "position": "Frontend Developer",
+        "period": "2019 - 2020",
+        "location": "Remote",
+        "logoUrl": "https://picsum.photos/seed/startup-tech/200/300",
+        "description": "Frontend developer focused on creating responsive and user-friendly interfaces for SaaS products.",
+        "achievements": [
+          "Built responsive dashboards and data visualization components using D3.js and React",
+          "Implemented client-side form validation and error handling, reducing support tickets by 50%",
+          "Developed custom hooks and utilities, improving code reusability across the application",
+          "Collaborated with UX team to implement pixel-perfect designs and smooth animations",
+          "Reduced bundle size by 45% through code splitting and lazy loading strategies"
+        ],
+        "technologies": ["React", "JavaScript", "HTML/CSS", "D3.js", "Webpack", "Git"]
+      }
+    ]
+  },
+  "projects": {
+    "sectionTitle": "Portfolio Projects",
+    "sectionSubtitle": "Showcasing my best work",
+    "items": [
+      {
+        "title": "Enterprise E-Commerce Platform",
+        "description": "A high-performance e-commerce platform handling 100K+ daily transactions with real-time inventory management",
+        "longDescription": "Developed a comprehensive e-commerce solution for enterprise customers with features including multi-vendor support, real-time inventory management, advanced product search, and integration with multiple payment gateways. The platform handles over 100K daily transactions with 99.9% uptime.",
+        "image": "https://picsum.photos/seed/ecommerce/800/1200",
+        "liveUrl": "https://enterprise-ecommerce.com",
+        "githubUrl": "https://github.com/johndoe/enterprise-ecommerce",
+        "featured": true,
+        "tech": ["React", "Next.js", "TypeScript", "Redux Toolkit", "Node.js", "PostgreSQL", "Redis", "AWS"],
+        "highlights": [
+          "Microservices architecture with Node.js backend",
+          "Real-time inventory and order management",
+          "Advanced caching with Redis",
+          "Elasticsearch for product search",
+          "Multi-vendor support with admin dashboard"
+        ]
+      },
+      {
+        "title": "SaaS Analytics Dashboard",
+        "description": "Real-time analytics dashboard for SaaS companies with advanced data visualization and reporting",
+        "longDescription": "Created a real-time analytics platform enabling SaaS companies to track key performance metrics, user engagement, revenue, and churn predictions. Features include interactive data visualizations, custom report generation, and integration with popular SaaS tools.",
+        "image": "https://picsum.photos/seed/dashboard/800/1200",
+        "liveUrl": "https://saas-analytics.com",
+        "githubUrl": "https://github.com/johndoe/saas-analytics",
+        "featured": true,
+        "tech": ["React", "TypeScript", "D3.js", "GraphQL", "Node.js", "MongoDB", "WebSocket"],
+        "highlights": [
+          "Real-time data visualization with D3.js",
+          "Custom dashboard builder",
+          "Automated report generation",
+          "User behavior analytics",
+          "Integration with popular SaaS tools"
+        ]
+      },
+      {
+        "title": "AI-Powered Content Platform",
+        "description": "Content generation and management platform leveraging OpenAI's GPT-3 for automated content creation",
+        "longDescription": "Developed a content management platform with AI-powered generation capabilities using OpenAI's GPT models. The platform helps content teams streamline their workflow with automated drafting, SEO optimization suggestions, and performance tracking.",
+        "image": "https://picsum.photos/seed/ai-content/800/1200",
+        "liveUrl": "https://ai-content-platform.com",
+        "githubUrl": "https://github.com/johndoe/ai-content",
+        "featured": true,
+        "tech": ["React", "Next.js", "OpenAI API", "Node.js", "MongoDB", "TailwindCSS"],
+        "highlights": [
+          "AI-powered content generation",
+          "SEO optimization tools",
+          "Content performance analytics",
+          "Team collaboration features",
+          "Multi-language support"
+        ]
+      },
+      {
+        "title": "Real-time Collaboration Tool",
+        "description": "Team collaboration platform with real-time document editing and project management features",
+        "longDescription": "Built a comprehensive team collaboration platform featuring real-time document editing, project management tools, video conferencing, and file sharing capabilities. The platform enables seamless teamwork for remote and distributed teams.",
+        "image": "https://picsum.photos/seed/collab-tool/800/1200",
+        "liveUrl": "https://collab-tool.com",
+        "githubUrl": "https://github.com/johndoe/collab-tool",
+        "featured": false,
+        "tech": ["React", "Socket.io", "Redux", "Node.js", "MongoDB", "Docker"],
+        "highlights": [
+          "Real-time document collaboration",
+          "Video conferencing integration",
+          "Task management system",
+          "File sharing and version control",
+          "Activity tracking and analytics"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "sectionTitle": "Education",
+    "sectionSubtitle": "My academic background",
+    "degrees": [
+      {
+        "degree": "Master of Science in Computer Science",
+        "institution": "Stanford University",
+        "location": "Stanford, CA",
+        "period": "2017 - 2019",
+        "description": "Specialized in Human-Computer Interaction and Web Technologies",
+        "achievements": [
+          "GPA: 3.9/4.0",
+          "Research Assistant in the Web Technologies Lab",
+          "Published a paper on frontend performance optimization techniques",
+          "Received the Outstanding Graduate Student Award"
+        ]
+      },
+      {
+        "degree": "Bachelor of Science in Software Engineering",
+        "institution": "University of California, Berkeley",
+        "location": "Berkeley, CA",
+        "period": "2013 - 2017",
+        "description": "Focused on software development methodologies and web development",
+        "achievements": [
+          "GPA: 3.8/4.0",
+          "Dean's List for 7 consecutive semesters",
+          "Led the university's web development club",
+          "Completed internships at Google and Microsoft"
+        ]
+      }
+    ]
+  },
+  "certifications": {
+    "sectionTitle": "Certifications & Awards",
+    "sectionSubtitle": "Professional credentials and recognition",
+    "items": [
+      {
+        "name": "AWS Certified Solutions Architect",
+        "issuer": "Amazon Web Services",
+        "date": "2023",
+        "url": "https://aws.amazon.com/certification/solutions-architect-associate/",
+        "logoUrl": "https://picsum.photos/seed/aws/200/300"
+      },
+      {
+        "name": "Advanced React Patterns",
+        "issuer": "Frontend Masters",
+        "date": "2022",
+        "url": "https://frontendmasters.com/courses/advanced-react-patterns/",
+        "logoUrl": "https://picsum.photos/seed/frontend-masters/200/300"
+      },
+      {
+        "name": "TypeScript Professional",
+        "issuer": "Microsoft",
+        "date": "2021",
+        "url": "https://www.microsoft.com/en-us/learning/typescript-certification.aspx",
+        "logoUrl": "https://picsum.photos/seed/microsoft/200/300"
+      },
+      {
+        "name": "GraphQL Advanced Concepts",
+        "issuer": "Apollo GraphQL",
+        "date": "2021",
+        "url": "https://www.apollographql.com/tutorials/certifications/",
+        "logoUrl": "https://picsum.photos/seed/apollo/200/300"
+      }
+    ]
+  },
+  "testimonials": {
+    "sectionTitle": "Testimonials",
+    "sectionSubtitle": "What others say about me",
+    "items": [
+      {
+        "name": "Sarah Johnson",
+        "position": "CTO at Tech Solutions Inc.",
+        "company": "Tech Solutions Inc.",
+        "image": "https://picsum.photos/seed/sarah/200/300",
+        "testimonial": "John is one of the most talented React developers I've ever worked with. His ability to architect complex applications and optimize performance is outstanding. He's also a natural leader who raises the technical standards of the entire team."
+      },
+      {
+        "name": "Michael Chang",
+        "position": "Lead Developer",
+        "company": "Digital Innovations Co.",
+        "image": "https://picsum.photos/seed/michael/200/300",
+        "testimonial": "Working with John was a game-changer for our team. His deep knowledge of React and frontend architecture helped us rebuild our application with better performance and maintainability. He's also amazing at mentoring junior developers."
+      },
+      {
+        "name": "Emily Rodriguez",
+        "position": "Product Manager",
+        "company": "StartUp Tech",
+        "image": "https://picsum.photos/seed/emily/200/300",
+        "testimonial": "John's technical expertise combined with his understanding of user experience made him invaluable to our product team. He consistently delivered high-quality code and was always willing to go the extra mile to ensure our products exceeded user expectations."
+      }
+    ]
+  },
+  "contact": {
+    "sectionTitle": "Get In Touch",
+    "sectionSubtitle": "Let's talk about your project",
+    "email": "john.doe@example.com",
+    "phone": "+1 (555) 123-4567",
+    "address": "San Francisco, CA",
+    "calendlyUrl": "https://calendly.com/johndoe/30min",
+    "formspreeEndpoint": "https://formspree.io/f/your-endpoint",
+    "mapLocation": {
+      "lat": 37.7749,
+      "lng": -122.4194,
+      "zoom": 12
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 John Doe. All rights reserved.",
+    "showSocialLinks": true,
+    "navLinks": [
+      { "name": "Home", "url": "#home" },
+      { "name": "About", "url": "#about" },
+      { "name": "Skills", "url": "#skills" },
+      { "name": "Experience", "url": "#experience" },
+      { "name": "Projects", "url": "#projects" },
+      { "name": "Contact", "url": "#contact" }
+    ],
+    "credits": "Designed & Developed by John Doe"
+  },
+  "navigation": {
+    "logo": {
+      "text": "John Doe",
+      "image": "",
+      "showLogoImage": false
+    },
+    "links": [
+      { "name": "Home", "url": "#home" },
+      { "name": "About", "url": "#about" },
+      { "name": "Skills", "url": "#skills" },
+      { "name": "Experience", "url": "#experience" },
+      { "name": "Projects", "url": "#projects" },
+      { "name": "Testimonials", "url": "#testimonials" },
+      { "name": "Contact", "url": "#contact" }
+    ],
+    "cta": {
+      "text": "Resume",
+      "url": "/resume.pdf",
+      "showCta": true
+    }
+  },
+  "seo": {
+    "openGraph": {
+      "type": "website",
+      "locale": "en_US",
+      "url": "https://johndoe-portfolio.com",
+      "title": "John Doe - Senior React Developer",
+      "description": "Professional portfolio of John Doe, Senior React Developer based in San Francisco.",
+      "image": {
+        "url": "https://picsum.photos/seed/og-image/1200/630",
+        "width": 1200,
+        "height": 630,
+        "alt": "John Doe - React Developer"
+      }
+    },
+    "twitter": {
+      "handle": "@johndoe",
+      "site": "@johndoe",
+      "cardType": "summary_large_image"
+    }
+  },
+  "analytics": {
+    "googleAnalyticsId": "",
+    "metaPixelId": ""
+  }
+} 

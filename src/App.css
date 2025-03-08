@@ -15,7 +15,28 @@ body {
 }
 
 .App {
+  text-align: left;
+  position: relative;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Ensure proper spacing of the main content */
+main {
+  min-height: 100vh;
+}
+
+/* Fix for border-radius in images */
+img {
+  max-width: 100%;
+}
+
+/* Fix for certain browsers that don't properly handle border-radius with overflow */
+*[style*="border-radius"] {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {

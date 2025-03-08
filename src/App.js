@@ -1,36 +1,41 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react';
 import './App.css';
-
-const HomeComponent = lazy(() => import('./routes/Home'));
-const DashboardComponent = lazy(() => import('./routes/Dashboard'));
-const PortfolioComponent = lazy(() => import('./routes/Portfolio'));
+import ThemeProvider from './utils/ThemeProvider';
+import GlobalStyles from './styles/GlobalStyles';
+import Navigation from './components/ui/Navigation';
+import Hero from './components/sections/Hero';
+import Footer from './components/ui/Footer';
+import AboutSection from './components/sections/About';
+import SkillsSection from './components/sections/Skills';
+import ExperienceSection from './components/sections/Experience';
+import ProjectsSection from './components/sections/Projects';
+import TestimonialsSection from './components/sections/Testimonials';
+import ContactSection from './components/sections/Contact';
+import EducationSection from './components/sections/Education';
+import CertificationsSection from './components/sections/Certifications';
+import ThemeSettings from './components/ui/ThemeSettings';
 
 function App() {
   return (
-    <Router>
+    <ThemeProvider>
+      <GlobalStyles />
       <div className="App">
-        <Suspense fallback={
-          <div style={{
-            height: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '1.5rem',
-            background: '#1a1a1a',
-            color: '#ffffff'
-          }}>
-            Loading...
-          </div>
-        }>
-          <Switch>
-            <Route exact path="/" component={PortfolioComponent} />
-            <Route path="/home" component={HomeComponent} />
-            <Route path="/dashboard" component={DashboardComponent} />
-          </Switch>
-        </Suspense>
+        <Navigation />
+        <main>
+          <Hero />
+          <AboutSection />
+          <SkillsSection />
+          <ExperienceSection />
+          <ProjectsSection />
+          <EducationSection />
+          <CertificationsSection />
+          <TestimonialsSection />
+          <ContactSection />
+        </main>
+        <Footer />
+        <ThemeSettings />
       </div>
-    </Router>
+    </ThemeProvider>
   );
 }
 
