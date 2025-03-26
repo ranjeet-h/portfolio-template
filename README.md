@@ -1,28 +1,42 @@
-# 🚀 React Portfolio Template
+# 🚀 Modern React Portfolio Template
 
-A beautiful, highly customizable React portfolio template built with modern technologies and best UI/UX practices.
+A professionally designed, fully customizable React portfolio template built with modern web technologies. Perfect for developers, designers, and creatives looking to showcase their work with a polished online presence.
 
 ![Portfolio Preview](preview.png)
 
 ## ✨ Features
 
-- **📱 Fully Responsive**: Looks great on any device
-- **🎨 Customizable**: Just edit the JSON config file to customize your portfolio
-- **✅ Modern Design**: Beautiful UI with smooth animations and transitions
-- **⚡ Performance Optimized**: Fast load times and smooth experience
-- **🔍 SEO Friendly**: Built with best SEO practices
-- **🌐 Social Media Integration**: Connect all your social platforms
-- **📊 Analytics Ready**: Easy integration with Google Analytics and Meta Pixel
-- **🔄 Dynamic Sections**: All sections are driven by your config file - add, remove, or reorder as needed
-- **🌙 Customizable Theme**: Change colors, fonts, and styling with ease
+- **📱 Fully Responsive**: Looks great on all devices from mobile to desktop
+- **🎨 Customizable**: Easy configuration through JSON files - no code editing required
+- **✅ Modern Design**: Beautiful UI with smooth animations and micro-interactions
+- **⚡ Performance Optimized**: Fast load times and optimized rendering
+- **🔍 SEO Friendly**: Built with best SEO practices for better discoverability
+- **🌐 Social Media Integration**: Connect all your social platforms seamlessly
+- **🎭 Animation Rich**: Engaging animations powered by Framer Motion
+- **📊 State Management**: Redux Toolkit for efficient state handling
+- **🔄 Dynamic Sections**: All sections driven by configuration - add, remove, or reorder as needed
+- **🌙 Theme Customization**: Fully customizable colors, fonts, and styling
+- **🧩 Modular Components**: Clean, reusable component architecture
+- **📱 Custom Cursor**: Engaging custom cursor interactions
+- **🖼️ 3D Elements**: Three.js integration for immersive 3D elements
+- **📝 Form Handling**: Robust contact form with validation via React Hook Form
 
 ## 🛠️ Technologies Used
 
-- React.js (v19.0.0)
-- Framer Motion for animations
-- Emotion Styled for styling
-- React Icons
-- Modern CSS with CSS Variables
+- **React.js (v19.0.0)**: Core framework
+- **React Router (v5.1.2)**: For navigation and routing
+- **Redux Toolkit (v2.6.1)**: State management
+- **Framer Motion (v12.4.5)**: Advanced animations
+- **Emotion Styled (v11.14.0)**: Component styling
+- **React Hook Form (v7.54.2)**: Form handling with validation
+- **Yup (v1.6.1)**: Schema validation
+- **React Icons (v5.5.0)**: Icon library
+- **Three.js (v0.174.0)**: 3D graphics
+- **React Three Fiber (v9.1.0)**: React renderer for Three.js
+- **React Three Drei (v10.0.5)**: Useful helpers for React Three Fiber
+- **GSAP (v3.12.7)**: Advanced animations
+- **Typed.js (v2.1.0)**: Typing animation
+- **React Intersection Observer (v9.16.0)**: Viewport detection
 
 ## 🚀 Getting Started
 
@@ -57,11 +71,11 @@ yarn start
 
 ## 📄 Customization
 
-The entire portfolio is customized through a single JSON configuration file. No need to touch any code!
+The entire portfolio is customizable through JSON configuration files:
 
-### 1. Edit the Configuration File
+### 1. Edit the Configuration Files
 
-Open `src/data/portfolio-config.json` in your editor and customize each section:
+Open `src/data/portfolio-config.json` to customize each section:
 
 - **Site Metadata**: Title, description, favicon, etc.
 - **Theme**: Colors, fonts, and overall styling
@@ -77,6 +91,8 @@ Open `src/data/portfolio-config.json` in your editor and customize each section:
 - **Contact**: How people can reach you
 - **Footer & Navigation**: Footer content and navigation links
 
+Alternatively, you can edit `src/data/portfolio-data.js` for a more programmatic approach.
+
 ### 2. Add Your Assets
 
 Place your images and other assets in the `public` folder:
@@ -87,7 +103,62 @@ Place your images and other assets in the `public` folder:
 - Certificate logos: `/certificates/...`
 - Testimonial photos: `/testimonials/...`
 
-### 3. Deploy Your Portfolio
+## 📦 Project Structure
+
+```
+├── public/               # Public assets (images, favicon, etc.)
+├── src/
+│   ├── components/       # React components
+│   │   ├── sections/     # Major portfolio sections
+│   │   │   ├── About.js            # About me section
+│   │   │   ├── Certifications.js   # Certifications section
+│   │   │   ├── Contact.js          # Contact form section
+│   │   │   ├── Education.js        # Education section
+│   │   │   ├── Experience.js       # Work experience section
+│   │   │   ├── Hero.js             # Hero/landing section
+│   │   │   ├── Projects.js         # Projects showcase section
+│   │   │   ├── Skills.js           # Skills section
+│   │   │   └── Testimonials.js     # Testimonials section
+│   │   │
+│   │   └── ui/           # Reusable UI components
+│   │       ├── Button.js           # Custom button component
+│   │       ├── Card.js             # Card component for projects, etc.
+│   │       ├── CaseStudy.js        # Case study component
+│   │       ├── CustomCursor.js     # Custom cursor effect
+│   │       ├── Footer.js           # Site footer component
+│   │       ├── Navigation.js       # Navigation/header component
+│   │       ├── Section.js          # Base section component
+│   │       └── ThemeSettings.js    # Theme customization panel
+│   │   
+│   ├── data/             # Configuration data
+│   │   ├── portfolio-config.json   # Main configuration file 
+│   │   └── portfolio-data.js       # JavaScript configuration
+│   │
+│   ├── hooks/            # Custom React hooks
+│   ├── redux/            # Redux state management
+│   ├── routes/           # Application routes
+│   ├── styles/           # Global styles
+│   ├── utils/            # Utility functions
+│   ├── App.js            # Main application component
+│   └── index.js          # Entry point
+│
+├── package.json          # Dependencies and scripts
+└── README.md             # This file
+```
+
+## 🧪 Testing
+
+The project includes comprehensive tests for components and functionality:
+
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage report
+npm test -- --coverage
+```
+
+## 🚀 Deployment
 
 Build your portfolio for production:
 
@@ -97,39 +168,29 @@ npm run build
 yarn build
 ```
 
-Deploy the `build` folder to your hosting provider of choice. 
+The build folder can be deployed to any static hosting service:
 
-Recommended hosting options:
 - Vercel
 - Netlify
 - GitHub Pages
 - Firebase Hosting
+- AWS Amplify
 
-## 📦 Project Structure
+## 🔧 Advanced Customization
 
-```
-├── public/               # Public assets (images, favicon, etc.)
-├── src/
-│   ├── components/       # React components
-│   │   ├── sections/     # Major portfolio sections
-│   │   └── ui/           # Reusable UI components
-│   │   
-│   ├── data/             # JSON configuration files
-│   ├── styles/           # Global styles
-│   ├── utils/            # Utility functions
-│   ├── App.js            # Main application component
-│   └── index.js          # Entry point
-├── package.json          # Dependencies and scripts
-└── README.md             # This file
-```
-
-## 📝 Adding Custom Sections
-
-If you want to add custom sections beyond what's provided:
+### Adding New Sections
 
 1. Create a new component in `src/components/sections/`
 2. Add the corresponding configuration in `src/data/portfolio-config.json`
-3. Import and include your new section in `src/App.js`
+3. Import and include your section in `src/App.js`
+
+### Customizing Animations
+
+Animation settings can be modified in the individual components using Framer Motion or by adjusting the animation properties in the configuration.
+
+### 3D Elements
+
+The template includes Three.js for 3D elements. You can customize or extend these in the relevant components.
 
 ## 🤝 Contributing
 
@@ -145,6 +206,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Framer Motion](https://www.framer.com/motion/)
 - [Emotion](https://emotion.sh/)
 - [React Icons](https://react-icons.github.io/react-icons/)
+- [Three.js](https://threejs.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
 
 ---
 

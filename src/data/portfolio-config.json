@@ -1,10 +1,10 @@
 {
   "siteMetadata": {
-    "title": "Professional Portfolio",
-    "description": "My professional portfolio showcasing my skills, experience and projects",
-    "author": "John Doe",
-    "siteUrl": "https://johndoe-portfolio.com",
-    "twitterUsername": "@johndoe",
+    "title": "Ranjeet Harishchandre | Frontend Developer",
+    "description": "Professional portfolio of Ranjeet Harishchandre, Frontend Developer with expertise in React, TypeScript, Next.js, and more.",
+    "author": "Ranjeet Harishchandre",
+    "siteUrl": "https://ranjeetharishchandre.com",
+    "twitterUsername": "@ranjeetharish",
     "favicon": "/favicon.ico"
   },
   "theme": {
@@ -19,35 +19,56 @@
     "fontSecondary": "'Montserrat', sans-serif"
   },
   "header": {
-    "name": "John Doe",
-    "title": "Senior React Developer",
+    "name": "Ranjeet Harishchandre",
+    "title": "Frontend Developer",
     "backgroundType": "gradient", 
     "backgroundImage": "",
     "profileImage": "https://picsum.photos/seed/profile/200/300",
     "typedStrings": [
-      "React Developer", 
-      "UI/UX Enthusiast",
-      "Frontend Architect",
-      "Performance Optimizer"
+      "Frontend Developer", 
+      "React Specialist",
+      "TypeScript Developer",
+      "Next.js Expert"
     ],
     "ctaText": "Contact Me",
     "ctaUrl": "#contact"
   },
   "about": {
-    "title": "About Me",
-    "subtitle": "My journey as a developer",
-    "description": "Senior React Developer with 4.5 years of expertise in building high-performance web applications. Specialized in creating scalable frontend architectures, optimizing application performance, and implementing modern UI/UX practices. Proven track record of leading teams and delivering enterprise-level solutions that drive business growth.",
-    "yearsOfExperience": 4.5,
-    "email": "john.doe@example.com",
-    "phone": "+1 (555) 123-4567",
-    "location": "San Francisco, CA",
-    "resumeUrl": "/resume.pdf",
-    "imageUrl": "https://picsum.photos/seed/about/800/1200"
+    "sectionTitle": "About Me",
+    "sectionSubtitle": "Get to know me better: my background, skills, and what drives me as a developer.",
+    "bioTitle": "Who I Am",
+    "bioDescription": "As a professional Frontend Developer with around 3.5 years of experience, I possess expertise in React, TypeScript, Next.js, SCSS, Tailwind CSS, and more. Throughout my career, I've contributed to over 30 web projects, catering to a diverse range of clients from finance to e-commerce.",
+    "bioDescription2": "Additionally, I've worked on DeFi projects and cryptocurrency trading platforms, expanding my knowledge in these domains. Passionate about web technologies, I adopt a continuous learning approach to enhance my skills. Currently, I'm immersing myself in Flutter and Dart, with future aspirations to delve into Blockchain Development.",
+    "profileImage": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2100&q=80",
+    "resumePdfUrl": "/Ranjeet_Harishchandre_Resume.pdf",
+    "resumeJsonUrl": "/Ranjeet_Harishchandre_Resume.json",
+    "experience": "4.5+",
+    "experienceYears": "4.5+",
+    "projectsCompleted": "35+",
+    "clientsServed": "10+",
+    "technologies": "10+",
+    "philosophies": [
+      {
+        "title": "User-Centered Design",
+        "description": "I believe in creating digital experiences that prioritize user needs and preferences, ensuring intuitive and accessible interfaces for all.",
+        "icon": "FiUser"
+      },
+      {
+        "title": "Clean Code Architecture",
+        "description": "I'm passionate about writing maintainable, efficient code with clear patterns and structure that makes collaboration and future development easier.",
+        "icon": "FiCode"
+      },
+      {
+        "title": "Continuous Learning",
+        "description": "Technology evolves rapidly, and I'm committed to staying current with the latest tools, frameworks, and best practices in frontend development.",
+        "icon": "FiBook"
+      }
+    ]
   },
   "social": {
-    "github": "https://github.com/johndoe",
-    "linkedin": "https://linkedin.com/in/johndoe",
-    "twitter": "https://twitter.com/johndoe",
+    "github": "https://github.com/ranjeetharishchandre",
+    "linkedin": "https://linkedin.com/in/ranjeetharishchandre",
+    "twitter": "https://twitter.com/ranjeetharish",
     "instagram": "",
     "facebook": "",
     "youtube": "",
@@ -64,19 +85,16 @@
         "name": "Frontend",
         "icon": "code",
         "skills": [
-          {"name": "React.js", "level": 95},
-          {"name": "Next.js", "level": 90},
-          {"name": "Redux", "level": 85},
-          {"name": "TypeScript", "level": 90},
-          {"name": "JavaScript (ES6+)", "level": 95},
+          {"name": "React.js", "level": 90},
+          {"name": "Next.js", "level": 85},
+          {"name": "TypeScript", "level": 85},
+          {"name": "JavaScript (ES6+)", "level": 90},
           {"name": "HTML5/CSS3", "level": 90},
           {"name": "Tailwind CSS", "level": 85},
-          {"name": "Material-UI", "level": 80},
-          {"name": "Styled Components", "level": 90},
-          {"name": "Framer Motion", "level": 85},
-          {"name": "React Query", "level": 80},
-          {"name": "React Hook Form", "level": 85},
-          {"name": "Webpack", "level": 75},
+          {"name": "SCSS", "level": 80},
+          {"name": "Redux", "level": 80},
+          {"name": "Chakra UI", "level": 75},
+          {"name": "Ant Design", "level": 75},
           {"name": "Vite", "level": 80}
         ]
       },
@@ -84,43 +102,32 @@
         "name": "Backend",
         "icon": "server",
         "skills": [
-          {"name": "Node.js", "level": 80},
-          {"name": "Express.js", "level": 85},
-          {"name": "MongoDB", "level": 75},
-          {"name": "PostgreSQL", "level": 70},
-          {"name": "RESTful APIs", "level": 90},
-          {"name": "GraphQL", "level": 80},
-          {"name": "Firebase", "level": 85},
-          {"name": "AWS Lambda", "level": 75},
-          {"name": "Microservices", "level": 75}
+          {"name": "Node.js", "level": 75},
+          {"name": "Express.js", "level": 70},
+          {"name": "MongoDB", "level": 70},
+          {"name": "Mongoose", "level": 70},
+          {"name": "RESTful APIs", "level": 80}
         ]
       },
       {
         "name": "Tools & Technologies",
         "icon": "tools",
         "skills": [
-          {"name": "Git", "level": 90},
-          {"name": "Docker", "level": 75},
-          {"name": "Jenkins", "level": 65},
-          {"name": "Jest", "level": 80},
-          {"name": "React Testing Library", "level": 85},
-          {"name": "CI/CD", "level": 75},
-          {"name": "AWS", "level": 70},
-          {"name": "Jira", "level": 85},
-          {"name": "Figma", "level": 70},
-          {"name": "Performance Optimization", "level": 85}
+          {"name": "Git", "level": 85},
+          {"name": "Electron", "level": 70},
+          {"name": "OpenAI API", "level": 75},
+          {"name": "Bard API", "level": 70},
+          {"name": "Flutter/Dart", "level": 60},
+          {"name": "Blockchain Basics", "level": 55}
         ]
       },
       {
-        "name": "Soft Skills",
+        "name": "Languages",
         "icon": "users",
         "skills": [
-          {"name": "Team Leadership", "level": 90},
-          {"name": "Agile/Scrum", "level": 85},
-          {"name": "Technical Mentoring", "level": 90},
-          {"name": "Problem Solving", "level": 95},
-          {"name": "Code Reviews", "level": 90},
-          {"name": "Documentation", "level": 85}
+          {"name": "English", "level": 90},
+          {"name": "Hindi", "level": 95},
+          {"name": "Marathi", "level": 95}
         ]
       }
     ]
@@ -131,125 +138,135 @@
     "showCompanyLogos": true,
     "jobs": [
       {
-        "company": "Tech Solutions Inc.",
-        "position": "Senior React Developer",
-        "period": "2022 - Present",
-        "location": "San Francisco, CA",
-        "logoUrl": "https://picsum.photos/seed/tech-solutions/200/300",
-        "description": "Lead developer for enterprise-level React applications serving 1M+ users, focusing on performance optimization and team leadership.",
-        "achievements": [
-          "Architected and implemented a microservices-based frontend architecture, reducing deployment time by 60%",
-          "Led the migration from Create React App to Next.js, improving initial load time by 40% and SEO performance",
-          "Implemented advanced caching strategies with React Query, reducing API calls by 70%",
-          "Mentored a team of 5 junior developers, conducting regular code reviews and technical training sessions",
-          "Established coding standards and best practices, improving code quality and reducing technical debt by 45%"
-        ],
-        "technologies": ["React", "Next.js", "TypeScript", "Redux", "Node.js", "GraphQL", "CI/CD", "AWS"]
-      },
-      {
-        "company": "Digital Innovations Co.",
-        "position": "React Developer",
-        "period": "2020 - 2022",
-        "location": "Boston, MA",
-        "logoUrl": "https://picsum.photos/seed/digital-innovations/200/300",
-        "description": "Full-stack React developer working on high-traffic e-commerce platforms and business applications.",
-        "achievements": [
-          "Developed a reusable component library used across 8 different projects, reducing development time by 40%",
-          "Implemented real-time order tracking system using WebSocket, improving customer satisfaction by 35%",
-          "Optimized Redux store structure and implemented Redux Toolkit, reducing boilerplate code by 60%",
-          "Created automated testing suite with 90% code coverage using Jest and React Testing Library",
-          "Integrated multiple payment gateways and improved checkout flow, increasing conversion rate by 25%"
-        ],
-        "technologies": ["React", "Redux", "JavaScript", "Node.js", "MongoDB", "WebSocket", "Jest", "CI/CD"]
-      },
-      {
-        "company": "StartUp Tech",
+        "company": "Recruiterflow",
         "position": "Frontend Developer",
-        "period": "2019 - 2020",
+        "period": "2022-08 - Present",
         "location": "Remote",
-        "logoUrl": "https://picsum.photos/seed/startup-tech/200/300",
-        "description": "Frontend developer focused on creating responsive and user-friendly interfaces for SaaS products.",
+        "logoUrl": "https://picsum.photos/seed/recruiterflow/200/300",
+        "description": "Building reusable components and developing web applications with cutting-edge features utilized by thousands of users in their daily routines.",
         "achievements": [
-          "Built responsive dashboards and data visualization components using D3.js and React",
-          "Implemented client-side form validation and error handling, reducing support tickets by 50%",
-          "Developed custom hooks and utilities, improving code reusability across the application",
-          "Collaborated with UX team to implement pixel-perfect designs and smooth animations",
-          "Reduced bundle size by 45% through code splitting and lazy loading strategies"
+          "Redesigned application form used by more than 1 million people weekly, implementing React by injecting it inside webpages to significantly increase site speed",
+          "Implemented OpenAI and Bard APIs to automate text writing and added speech-to-action feature for voice command functionality",
+          "Successfully upgraded frontend libraries in a large-scale project, maintaining 100% uptime and zero production bugs, receiving recognition from CTO",
+          "Integrated RF-GPT into SaaS product to help recruiters automate tasks like email writing, job description creation, and call logs, enhancing workflow efficiency"
         ],
-        "technologies": ["React", "JavaScript", "HTML/CSS", "D3.js", "Webpack", "Git"]
+        "technologies": ["React", "TypeScript", "Next.js", "OpenAI API", "Jinja Template", "Redux"]
+      },
+      {
+        "company": "Stackera PVT. LTD.",
+        "position": "Associate Software Developer",
+        "period": "2021-06 - 2022-08",
+        "location": "Hybrid",
+        "logoUrl": "https://picsum.photos/seed/stackera/200/300",
+        "description": "Worked on DeFi cryptocurrency web applications using modern frontend technologies.",
+        "achievements": [
+          "Built InvestDex, a DeFi web application using React with custom Next.js and Chakra UI in a team environment",
+          "Independently developed Trifle Finance, an in-house cryptocurrency exchange and DeFi application using Next.js, TypeScript, and Tailwind CSS",
+          "Created the frontend for Gimble Pay, a payment integration web application using Next.js, TypeScript, and Tailwind CSS",
+          "Converted SPSQ, a crypto trading platform from jQuery to an Electron React application for Windows, macOS, and Linux"
+        ],
+        "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Chakra UI", "Electron", "DeFi"]
+      },
+      {
+        "company": "ZEALIT SOLUTIONS PVT. LTD",
+        "position": "React Developer Intern",
+        "period": "2021-02 - 2021-07",
+        "location": "Remote",
+        "logoUrl": "https://picsum.photos/seed/zealit/200/300",
+        "description": "Worked on an enterprise application providing pre-developed web app templates without coding requirements.",
+        "achievements": [
+          "Gained valuable insights into professional web development practices and industry standards",
+          "Developed components for enterprise application focused on template-based web development",
+          "Applied React best practices in a real-world application development environment"
+        ],
+        "technologies": ["React", "JavaScript", "HTML/CSS", "Web Development"]
+      },
+      {
+        "company": "Self Employed",
+        "position": "Freelance Developer",
+        "period": "2020-07 - 2021-02",
+        "location": "Remote",
+        "logoUrl": "https://picsum.photos/seed/freelance/200/300",
+        "description": "Worked as a freelancer on React web applications for various clients.",
+        "achievements": [
+          "Developed PVP College site, a fully responsive website using Next.js, Tailwind, and JavaScript",
+          "Managed entire web development lifecycle from requirement gathering to deployment",
+          "Created custom solutions for varied client needs across different business domains"
+        ],
+        "technologies": ["React", "Next.js", "JavaScript", "Tailwind CSS", "Responsive Design"]
       }
     ]
   },
   "projects": {
-    "sectionTitle": "Portfolio Projects",
+    "sectionTitle": "Projects",
     "sectionSubtitle": "Showcasing my best work",
     "items": [
       {
-        "title": "Enterprise E-Commerce Platform",
-        "description": "A high-performance e-commerce platform handling 100K+ daily transactions with real-time inventory management",
-        "longDescription": "Developed a comprehensive e-commerce solution for enterprise customers with features including multi-vendor support, real-time inventory management, advanced product search, and integration with multiple payment gateways. The platform handles over 100K daily transactions with 99.9% uptime.",
-        "image": "https://picsum.photos/seed/ecommerce/800/1200",
-        "liveUrl": "https://enterprise-ecommerce.com",
-        "githubUrl": "https://github.com/johndoe/enterprise-ecommerce",
+        "title": "Mauli CSP",
+        "description": "Customer Support Portal SaaS software for small and medium-sized shops",
+        "longDescription": "Built the Customer Support Portal as SaaS software focused on small and medium-sized shops. The platform allows shopkeepers to add entries for new products, track sales, and monitor borrowings. The main focus was to provide easy access to statistics on inventory and sales. Solo developed both backend and frontend for this project.",
+        "image": "https://picsum.photos/seed/mauli/800/1200",
+        "liveUrl": "",
+        "githubUrl": "",
         "featured": true,
-        "tech": ["React", "Next.js", "TypeScript", "Redux Toolkit", "Node.js", "PostgreSQL", "Redis", "AWS"],
+        "tech": ["React", "TypeScript", "Vite", "Ant Design", "Node.js", "MongoDB", "Mongoose"],
         "highlights": [
-          "Microservices architecture with Node.js backend",
-          "Real-time inventory and order management",
-          "Advanced caching with Redis",
-          "Elasticsearch for product search",
-          "Multi-vendor support with admin dashboard"
+          "Full-stack development from concept to deployment",
+          "Scalable architecture for seamless feature additions",
+          "User-friendly UI for non-technical shop owners",
+          "Real-time inventory and sales tracking",
+          "Comprehensive borrowing management system"
         ]
       },
       {
-        "title": "SaaS Analytics Dashboard",
-        "description": "Real-time analytics dashboard for SaaS companies with advanced data visualization and reporting",
-        "longDescription": "Created a real-time analytics platform enabling SaaS companies to track key performance metrics, user engagement, revenue, and churn predictions. Features include interactive data visualizations, custom report generation, and integration with popular SaaS tools.",
-        "image": "https://picsum.photos/seed/dashboard/800/1200",
-        "liveUrl": "https://saas-analytics.com",
-        "githubUrl": "https://github.com/johndoe/saas-analytics",
+        "title": "PVP College Site",
+        "description": "Fully responsive college website with modern UI/UX",
+        "longDescription": "Developed PVP College site as a freelance project. It's a fully responsive website built using Next.js, Tailwind CSS, and JavaScript, providing an intuitive and engaging experience for students, faculty, and visitors.",
+        "image": "https://picsum.photos/seed/pvp/800/1200",
+        "liveUrl": "https://pvpcollage-loni-webapp.vercel.app/",
+        "githubUrl": "",
         "featured": true,
-        "tech": ["React", "TypeScript", "D3.js", "GraphQL", "Node.js", "MongoDB", "WebSocket"],
+        "tech": ["Next.js", "JavaScript", "Tailwind CSS", "Responsive Design"],
         "highlights": [
-          "Real-time data visualization with D3.js",
-          "Custom dashboard builder",
-          "Automated report generation",
-          "User behavior analytics",
-          "Integration with popular SaaS tools"
+          "Mobile-first responsive design",
+          "Optimized performance for various devices",
+          "SEO-friendly architecture",
+          "Intuitive navigation and user experience",
+          "Fast loading times with Next.js optimization"
         ]
       },
       {
-        "title": "AI-Powered Content Platform",
-        "description": "Content generation and management platform leveraging OpenAI's GPT-3 for automated content creation",
-        "longDescription": "Developed a content management platform with AI-powered generation capabilities using OpenAI's GPT models. The platform helps content teams streamline their workflow with automated drafting, SEO optimization suggestions, and performance tracking.",
-        "image": "https://picsum.photos/seed/ai-content/800/1200",
-        "liveUrl": "https://ai-content-platform.com",
-        "githubUrl": "https://github.com/johndoe/ai-content",
-        "featured": true,
-        "tech": ["React", "Next.js", "OpenAI API", "Node.js", "MongoDB", "TailwindCSS"],
-        "highlights": [
-          "AI-powered content generation",
-          "SEO optimization tools",
-          "Content performance analytics",
-          "Team collaboration features",
-          "Multi-language support"
-        ]
-      },
-      {
-        "title": "Real-time Collaboration Tool",
-        "description": "Team collaboration platform with real-time document editing and project management features",
-        "longDescription": "Built a comprehensive team collaboration platform featuring real-time document editing, project management tools, video conferencing, and file sharing capabilities. The platform enables seamless teamwork for remote and distributed teams.",
-        "image": "https://picsum.photos/seed/collab-tool/800/1200",
-        "liveUrl": "https://collab-tool.com",
-        "githubUrl": "https://github.com/johndoe/collab-tool",
+        "title": "InvestDex",
+        "description": "DeFi web application for cryptocurrency investment and trading",
+        "longDescription": "Collaborated on InvestDex, a DeFi web application built in React with custom Next.js and Chakra UI. The platform enables users to invest, trade, and manage their cryptocurrency portfolio with advanced DeFi features.",
+        "image": "https://picsum.photos/seed/investdex/800/1200",
+        "liveUrl": "",
+        "githubUrl": "",
         "featured": false,
-        "tech": ["React", "Socket.io", "Redux", "Node.js", "MongoDB", "Docker"],
+        "tech": ["React", "Next.js", "Chakra UI", "DeFi", "Cryptocurrency"],
         "highlights": [
-          "Real-time document collaboration",
-          "Video conferencing integration",
-          "Task management system",
-          "File sharing and version control",
-          "Activity tracking and analytics"
+          "Secure cryptocurrency trading interface",
+          "Integration with blockchain networks",
+          "Real-time market data visualization",
+          "User-friendly portfolio management",
+          "Mobile-responsive design"
+        ]
+      },
+      {
+        "title": "Trifle Finance",
+        "description": "In-house cryptocurrency exchange and DeFi application",
+        "longDescription": "Independently developed Trifle Finance, an in-house cryptocurrency exchange and DeFi application. Built using Next.js, TypeScript, and Tailwind CSS, the platform provides a seamless trading experience with advanced DeFi features.",
+        "image": "https://picsum.photos/seed/trifle/800/1200",
+        "liveUrl": "",
+        "githubUrl": "",
+        "featured": false,
+        "tech": ["Next.js", "TypeScript", "Tailwind CSS", "DeFi", "Cryptocurrency"],
+        "highlights": [
+          "Custom exchange interface",
+          "Integrated wallet functionality",
+          "Advanced trading features",
+          "DeFi staking and yield farming",
+          "Secure transaction processing"
         ]
       }
     ]
@@ -259,64 +276,62 @@
     "sectionSubtitle": "My academic background",
     "degrees": [
       {
-        "degree": "Master of Science in Computer Science",
-        "institution": "Stanford University",
-        "location": "Stanford, CA",
-        "period": "2017 - 2019",
-        "description": "Specialized in Human-Computer Interaction and Web Technologies",
+        "degree": "Master in Computer Science",
+        "institution": "P.V.P COLLEGE LONI, University of PUNE",
+        "location": "Pune, India",
+        "period": "2021",
+        "description": "Master's degree in Computer Science with focus on software development and web technologies",
         "achievements": [
-          "GPA: 3.9/4.0",
-          "Research Assistant in the Web Technologies Lab",
-          "Published a paper on frontend performance optimization techniques",
-          "Received the Outstanding Graduate Student Award"
+          "GPA: 8.2/10",
+          "Specialized in web development technologies",
+          "Completed thesis on modern frontend frameworks"
         ]
       },
       {
-        "degree": "Bachelor of Science in Software Engineering",
-        "institution": "University of California, Berkeley",
-        "location": "Berkeley, CA",
-        "period": "2013 - 2017",
-        "description": "Focused on software development methodologies and web development",
+        "degree": "BSc in Computer Science",
+        "institution": "DEOLALI COLLEGE, University of PUNE",
+        "location": "Pune, India",
+        "period": "2018",
+        "description": "Bachelor's degree in Computer Science covering fundamental and advanced computing concepts",
         "achievements": [
-          "GPA: 3.8/4.0",
-          "Dean's List for 7 consecutive semesters",
-          "Led the university's web development club",
-          "Completed internships at Google and Microsoft"
+          "Score: 62.00%",
+          "Focused on programming and development",
+          "Participated in various technical events and workshops"
         ]
       }
     ]
   },
   "certifications": {
-    "sectionTitle": "Certifications & Awards",
-    "sectionSubtitle": "Professional credentials and recognition",
+    "sectionTitle": "Certifications & Skills",
+    "sectionSubtitle": "Professional credentials and key technologies",
     "items": [
       {
-        "name": "AWS Certified Solutions Architect",
-        "issuer": "Amazon Web Services",
-        "date": "2023",
-        "url": "https://aws.amazon.com/certification/solutions-architect-associate/",
-        "logoUrl": "https://picsum.photos/seed/aws/200/300"
+        "name": "React Development",
+        "issuer": "Self-Learning & Professional Experience",
+        "date": "2020-2023",
+        "url": "",
+        "logoUrl": "https://picsum.photos/seed/react/200/300"
       },
       {
-        "name": "Advanced React Patterns",
-        "issuer": "Frontend Masters",
-        "date": "2022",
-        "url": "https://frontendmasters.com/courses/advanced-react-patterns/",
-        "logoUrl": "https://picsum.photos/seed/frontend-masters/200/300"
+        "name": "Next.js Expertise",
+        "issuer": "Professional Projects",
+        "date": "2021-2023",
+        "url": "",
+        "logoUrl": "https://picsum.photos/seed/nextjs/200/300"
       },
       {
-        "name": "TypeScript Professional",
-        "issuer": "Microsoft",
-        "date": "2021",
-        "url": "https://www.microsoft.com/en-us/learning/typescript-certification.aspx",
-        "logoUrl": "https://picsum.photos/seed/microsoft/200/300"
+        "name": "TypeScript Development",
+        "issuer": "Professional Experience",
+        "date": "2021-2023",
+        "url": "",
+        "logoUrl": "https://picsum.photos/seed/typescript/200/300"
       },
       {
-        "name": "GraphQL Advanced Concepts",
-        "issuer": "Apollo GraphQL",
-        "date": "2021",
-        "url": "https://www.apollographql.com/tutorials/certifications/",
-        "logoUrl": "https://picsum.photos/seed/apollo/200/300"
+        "name": "DeFi Web Development",
+        "issuer": "Stackera PVT. LTD.",
+        "date": "2021-2022",
+        "url": "",
+        "logoUrl": "https://picsum.photos/seed/defi/200/300"
       }
     ]
   },
@@ -325,45 +340,109 @@
     "sectionSubtitle": "What others say about me",
     "items": [
       {
-        "name": "Sarah Johnson",
-        "position": "CTO at Tech Solutions Inc.",
-        "company": "Tech Solutions Inc.",
-        "image": "https://picsum.photos/seed/sarah/200/300",
-        "testimonial": "John is one of the most talented React developers I've ever worked with. His ability to architect complex applications and optimize performance is outstanding. He's also a natural leader who raises the technical standards of the entire team."
+        "name": "Recruiterflow Team",
+        "position": "CTO",
+        "company": "Recruiterflow",
+        "image": "https://picsum.photos/seed/cto-rf/200/300",
+        "testimonial": "Ranjeet received praise from our CTO for his exceptional work in upgrading the frontend libraries while maintaining 100% uptime and zero production bugs."
       },
       {
-        "name": "Michael Chang",
+        "name": "Stackera Project Lead",
         "position": "Lead Developer",
-        "company": "Digital Innovations Co.",
-        "image": "https://picsum.photos/seed/michael/200/300",
-        "testimonial": "Working with John was a game-changer for our team. His deep knowledge of React and frontend architecture helped us rebuild our application with better performance and maintainability. He's also amazing at mentoring junior developers."
+        "company": "Stackera PVT. LTD.",
+        "image": "https://picsum.photos/seed/lead-stackera/200/300",
+        "testimonial": "Ranjeet independently developed Trifle Finance, demonstrating excellent skills in Next.js and TypeScript. His ability to handle complex DeFi applications was impressive."
       },
       {
-        "name": "Emily Rodriguez",
-        "position": "Product Manager",
-        "company": "StartUp Tech",
-        "image": "https://picsum.photos/seed/emily/200/300",
-        "testimonial": "John's technical expertise combined with his understanding of user experience made him invaluable to our product team. He consistently delivered high-quality code and was always willing to go the extra mile to ensure our products exceeded user expectations."
+        "name": "PVP College",
+        "position": "Client",
+        "company": "PVP College",
+        "image": "https://picsum.photos/seed/pvp-client/200/300",
+        "testimonial": "The website Ranjeet developed for us is fully responsive and meets all our requirements. His work exceeded our expectations in terms of design and functionality."
       }
     ]
   },
   "contact": {
     "sectionTitle": "Get In Touch",
-    "sectionSubtitle": "Let's talk about your project",
-    "email": "john.doe@example.com",
-    "phone": "+1 (555) 123-4567",
-    "address": "San Francisco, CA",
-    "calendlyUrl": "https://calendly.com/johndoe/30min",
+    "sectionSubtitle": "Let's connect and discuss opportunities",
+    "contactInfoTitle": "Contact Information",
+    "contactInfoDescription": "Feel free to reach out to me for any inquiries, project discussions, or collaboration opportunities. I'm always open to new challenges!",
+    "email": "ranjeetharishchandre@gmail.com",
+    "emailLabel": "Email",
+    "emailIsPrefLabel": "Preferred",
+    "phone": "+919960667293",
+    "phoneLabel": "Phone",
+    "address": "Ahilya Nagar, India",
+    "locationLabel": "Location",
+    "availabilityOnlineText": "Currently available for inquiries",
+    "availabilityOfflineText": "Currently offline, but I'll respond soon",
+    "responseTimeText": "Average response time: 24 hours",
+    "scheduleButtonText": "Schedule a Meeting",
+    "formTitle": "Send Me a Message",
+    "formSuccessMessage": "Thank you! Your message has been sent successfully.",
+    "formErrorMessage": "Please correct the errors in the form.",
+    "formNetworkErrorMessage": "Something went wrong. Please try again later.",
+    "contactMethodsLabel": "Preferred Contact Method",
+    "contactMethods": {
+      "email": "Email",
+      "phone": "Phone",
+      "meeting": "Video Call"
+    },
+    "formLabels": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "formPlaceholders": {
+      "name": "Your name",
+      "email": "Your email",
+      "subject": "Subject",
+      "message": "Your message"
+    },
+    "formValidation": {
+      "nameRequired": "Name is required",
+      "nameMinLength": "Name must be at least 2 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "subjectRequired": "Subject is required",
+      "subjectMinLength": "Subject must be at least 5 characters",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must be at least 20 characters"
+    },
+    "submitButtonText": "Send Message",
+    "submittingButtonText": "Sending...",
+    "calendlyUrl": "https://calendly.com/ranjeetharishchandre/30min",
     "formspreeEndpoint": "https://formspree.io/f/your-endpoint",
     "mapLocation": {
-      "lat": 37.7749,
-      "lng": -122.4194,
+      "lat": 18.5204,
+      "lng": 73.8567,
       "zoom": 12
+    },
+    "officeHours": {
+      "start": 9,
+      "end": 18
     }
   },
   "footer": {
-    "copyright": "© 2023 John Doe. All rights reserved.",
+    "copyright": "© 2025 Ranjeet Harishchandre. All rights reserved.",
     "showSocialLinks": true,
+    "techStackTitle": "Built With",
+    "techStack": [
+      { "name": "React", "icon": "react" },
+      { "name": "Redux", "icon": "code" },
+      { "name": "Next.js", "icon": "code" },
+      { "name": "TypeScript", "icon": "code" },
+      { "name": "SCSS", "icon": "code" },
+      { "name": "Tailwind", "icon": "code" },
+      { "name": "Framer Motion", "icon": "code" },
+      { "name": "Git", "icon": "codeBranch" }
+    ],
+    "githubActivityTitle": "Recent GitHub Activity",
+    "latestArticleTitle": "Latest Update",
+    "publishedText": "Updated",
+    "quickLinksTitle": "Quick Links",
+    "contactInfoTitle": "Contact Info",
     "navLinks": [
       { "name": "Home", "url": "#home" },
       { "name": "About", "url": "#about" },
@@ -372,11 +451,17 @@
       { "name": "Projects", "url": "#projects" },
       { "name": "Contact", "url": "#contact" }
     ],
-    "credits": "Designed & Developed by John Doe"
+    "credits": "Designed & Developed by Ranjeet Harishchandre",
+    "mobilePadding": {
+      "top": "4rem",
+      "bottom": "2rem",
+      "left": "1rem",
+      "right": "1rem"
+    }
   },
   "navigation": {
     "logo": {
-      "text": "John Doe",
+      "text": "Ranjeet Harishchandre",
       "image": "",
       "showLogoImage": false
     },
@@ -386,7 +471,7 @@
       { "name": "Skills", "url": "#skills" },
       { "name": "Experience", "url": "#experience" },
       { "name": "Projects", "url": "#projects" },
-      { "name": "Testimonials", "url": "#testimonials" },
+      { "name": "Education", "url": "#education" },
       { "name": "Contact", "url": "#contact" }
     ],
     "cta": {
@@ -399,19 +484,19 @@
     "openGraph": {
       "type": "website",
       "locale": "en_US",
-      "url": "https://johndoe-portfolio.com",
-      "title": "John Doe - Senior React Developer",
-      "description": "Professional portfolio of John Doe, Senior React Developer based in San Francisco.",
+      "url": "https://ranjeetharishchandre.com",
+      "title": "Ranjeet Harishchandre - Frontend Developer",
+      "description": "Professional portfolio of Ranjeet Harishchandre, Frontend Developer with expertise in React, TypeScript, Next.js and more.",
       "image": {
         "url": "https://picsum.photos/seed/og-image/1200/630",
         "width": 1200,
         "height": 630,
-        "alt": "John Doe - React Developer"
+        "alt": "Ranjeet Harishchandre - Frontend Developer"
       }
     },
     "twitter": {
-      "handle": "@johndoe",
-      "site": "@johndoe",
+      "handle": "@ranjeetharish",
+      "site": "@ranjeetharish",
       "cardType": "summary_large_image"
     }
   },

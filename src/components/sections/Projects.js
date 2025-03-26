@@ -34,9 +34,79 @@ import {
 } from 'react-icons/si';
 import Section from '../ui/Section';
 import config from '../../utils/configUtils';
+import { useSelector } from 'react-redux';
+import { selectProjects } from '../../redux/slices/portfolioSlice';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
+import CaseStudy from '../ui/CaseStudy';
 
-const ProjectsContainer = styled.div`
-  max-width: 100%;
+const ProjectsContainer = styled.section`
+  padding: 5rem 0;
+`;
+
+const ProjectsContent = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+`;
+
+const SectionHeader = styled(motion.div)`
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  h2 {
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary-color);
+    }
+  }
+  
+  p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-secondary-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+`;
+
+const FilterContainer = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+`;
+
+const FilterButton = styled.button`
+  background: ${({ active }) => active ? 'var(--primary-color)' : 'transparent'};
+  color: ${({ active }) => active ? 'white' : 'var(--text-color)'};
+  border: 1px solid ${({ active }) => active ? 'var(--primary-color)' : 'rgba(255, 255, 255, 0.2)'};
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: ${({ active }) => active ? 'var(--primary-color)' : 'rgba(255, 255, 255, 0.1)'};
+  }
+`;
+
+const ProjectsList = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
 `;
 
 const ProjectFilters = styled.div`
@@ -46,29 +116,6 @@ const ProjectFilters = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 3rem;
-`;
-
-const FilterButton = styled(motion.button)`
-  background: ${props => props.active ? 'var(--primary-color)' : 'transparent'};
-  color: ${props => props.active ? 'white' : 'var(--secondary-text-color)'};
-  border: 1px solid ${props => props.active ? 'var(--primary-color)' : 'rgba(255, 255, 255, 0.1)'};
-  padding: 0.5rem 1.2rem;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  
-  svg {
-    font-size: 0.9rem;
-  }
-  
-  &:hover {
-    background: ${props => props.active ? 'var(--primary-color)' : 'rgba(76, 161, 175, 0.1)'};
-    border-color: var(--primary-color);
-  }
 `;
 
 const ProjectsGrid = styled(motion.div)`
@@ -405,16 +452,16 @@ const containerVariants = {
   }
 };
 
-const cardVariants = {
+const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
-    }
-  }
+      ease: [0.6, 0.05, 0.01, 0.9],
+    },
+  },
 };
 
 const filterVariants = {
@@ -491,288 +538,107 @@ const contentVariants = {
   }
 };
 
-const ProjectsSection = () => {
-  const projectsData = config.get('projects', {});
-  const projects = projectsData.items || [];
-  
+const Projects = () => {
+  const { ref, inView } = useIntersectionObserver('projects', 0.1, false);
+  const projectsData = useSelector(selectProjects);
   const [activeFilter, setActiveFilter] = useState('all');
-  const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [selectedProject, setSelectedProject] = useState(null);
   
-  // Get unique tech categories
-  const allTech = projects.reduce((acc, project) => {
-    if (project.tech && project.tech.length > 0) {
-      return [...acc, ...project.tech];
-    }
+  // Create a list of unique technology categories
+  const allTechnologies = projectsData?.items?.reduce((acc, project) => {
+    project.tech?.forEach(tech => {
+      if (!acc.includes(tech)) {
+        acc.push(tech);
+      }
+    });
     return acc;
-  }, []);
+  }, []) || [];
   
-  const uniqueTech = ['all', ...new Set(allTech)];
+  // Filter projects based on selected technology
+  const filteredProjects = projectsData?.items?.filter(project => {
+    if (activeFilter === 'all') return true;
+    return project.tech?.includes(activeFilter);
+  }) || [];
   
-  // Filter projects by tech
-  const filterProjects = (filter) => {
+  // Handle filter change
+  const handleFilterChange = (filter) => {
     setActiveFilter(filter);
-    
-    if (filter === 'all') {
-      setFilteredProjects(projects);
-    } else {
-      const filtered = projects.filter(project => 
-        project.tech && project.tech.includes(filter)
-      );
-      setFilteredProjects(filtered);
-    }
   };
   
-  // Open project detail modal
-  const openProjectDetail = (project) => {
-    setSelectedProject(project);
-    document.body.style.overflow = 'hidden';
-  };
-  
-  // Close project detail modal
-  const closeProjectDetail = () => {
-    setSelectedProject(null);
-    document.body.style.overflow = 'auto';
-  };
-  
-  // Get project image with picsum photos
-  const getProjectImage = (project, size = '400x250') => {
-    if (project.image) {
-      return project.image;
-    }
-    // Generate a consistent random image based on project title
-    const seed = project.title.toLowerCase().replace(/\s+/g, '-');
-    return `https://picsum.photos/seed/${seed}/${size.split('x')[0]}/${size.split('x')[1]}`;
-  };
+  // Add the STAR methodology fields to each project
+  const projectsWithDetails = filteredProjects.map(project => {
+    // Add default STAR fields if not provided
+    return {
+      ...project,
+      situation: project.situation || project.longDescription,
+      task: project.task || 'The goal was to develop a solution that addresses the needs outlined in the situation.',
+      approach: project.approach || 'I implemented a solution using the technologies listed above, focusing on best practices and performance optimization.',
+      results: project.results || 'The project was successfully completed, meeting all requirements and delivering a high-quality solution.',
+    };
+  });
   
   return (
-    <Section
-      id="projects"
-      title={projectsData.sectionTitle || "Portfolio Projects"}
-      subtitle={projectsData.sectionSubtitle || "Showcasing my best work"}
-      bgColor="var(--background-color)"
-    >
-      <ProjectsContainer>
-        <ProjectFilters
-          as={motion.div}
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
+    <ProjectsContainer id="projects" ref={ref}>
+      <ProjectsContent>
+        <SectionHeader
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
         >
-          {uniqueTech.map((tech, index) => (
+          <h2>{projectsData?.sectionTitle || 'My Projects'}</h2>
+          <p>{projectsData?.sectionSubtitle || 'Explore my portfolio of web development projects showcasing my skills and experience.'}</p>
+        </SectionHeader>
+        
+        <FilterContainer
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <FilterButton 
+            active={activeFilter === 'all'} 
+            onClick={() => handleFilterChange('all')}
+          >
+            All
+          </FilterButton>
+          
+          {allTechnologies.slice(0, 8).map((tech, index) => (
             <FilterButton
-              key={tech}
+              key={index}
               active={activeFilter === tech}
-              onClick={() => filterProjects(tech)}
-              variants={filterVariants}
-              custom={index}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              onClick={() => handleFilterChange(tech)}
             >
-              {getFilterIcon(tech)}
-              {tech.charAt(0).toUpperCase() + tech.slice(1)}
+              {tech}
             </FilterButton>
           ))}
-        </ProjectFilters>
+        </FilterContainer>
         
-        <ProjectsGrid
-          as={motion.div}
+        <ProjectsList
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
-          layout
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
         >
-          <AnimatePresence>
-            {filteredProjects.map((project, index) => (
-              <ProjectCard
-                key={project.title}
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
-                layout
-              >
-                <div className="card-image">
-                  <img src={getProjectImage(project)} alt={project.title} />
-                  <div className="overlay"></div>
-                  <div className="tech-badges">
-                    {project.tech && project.tech.slice(0, 3).map((tech, techIndex) => (
-                      <TechBadge
-                        key={techIndex}
-                        variants={badgeVariants}
-                        custom={techIndex}
-                      >
-                        {getFilterIcon(tech)}
-                        {tech}
-                      </TechBadge>
-                    ))}
-                    {project.tech && project.tech.length > 3 && (
-                      <TechBadge
-                        variants={badgeVariants}
-                        custom={3}
-                      >
-                        +{project.tech.length - 3}
-                      </TechBadge>
-                    )}
-                  </div>
-                </div>
-                
-                <div className="card-content">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  
-                  <div className="card-actions">
-                    {project.githubUrl && (
-                      <ProjectLink
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ x: 3 }}
-                      >
-                        <FaGithub /> GitHub
-                      </ProjectLink>
-                    )}
-                    
-                    {project.liveUrl && (
-                      <ProjectLink
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ x: 3 }}
-                      >
-                        <FaExternalLinkAlt /> Live Demo
-                      </ProjectLink>
-                    )}
-                    
-                    <ProjectLink
-                      as={motion.button}
-                      whileHover={{ x: 3 }}
-                      style={{ 
-                        background: 'none', 
-                        border: 'none', 
-                        cursor: 'pointer',
-                        marginLeft: 'auto'
-                      }}
-                      onClick={() => openProjectDetail(project)}
-                    >
-                      <FaInfoCircle /> Details
-                    </ProjectLink>
-                  </div>
-                </div>
-              </ProjectCard>
-            ))}
-          </AnimatePresence>
-        </ProjectsGrid>
-        
-        <AnimatePresence>
-          {selectedProject && (
-            <ProjectDetail
-              variants={detailVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              onClick={closeProjectDetail}
+          {projectsWithDetails.map((project, index) => (
+            <CaseStudy 
+              key={index} 
+              project={project}
+              index={index}
+            />
+          ))}
+          
+          {filteredProjects.length === 0 && (
+            <motion.p
+              variants={itemVariants}
+              style={{ textAlign: 'center', marginTop: '2rem', color: 'var(--text-secondary-color)' }}
             >
-              <DetailContent
-                variants={contentVariants}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <CloseButton
-                  onClick={closeProjectDetail}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <FaTimes />
-                </CloseButton>
-                
-                <DetailHeader>
-                  <img 
-                    src={getProjectImage(selectedProject, '900x500')} 
-                    alt={selectedProject.title}
-                  />
-                  <div className="overlay"></div>
-                  <div className="title">
-                    <h2>{selectedProject.title}</h2>
-                  </div>
-                </DetailHeader>
-                
-                <DetailBody>
-                  <p>{selectedProject.longDescription || selectedProject.description}</p>
-                  
-                  {selectedProject.tech && selectedProject.tech.length > 0 && (
-                    <>
-                      <h3><FaLaptopCode /> Technologies Used</h3>
-                      <DetailTechStack>
-                        {selectedProject.tech.map((tech, index) => (
-                          <DetailTechBadge
-                            key={index}
-                            variants={badgeVariants}
-                            custom={index}
-                            initial="hidden"
-                            animate="visible"
-                          >
-                            {getFilterIcon(tech)}
-                            {tech}
-                          </DetailTechBadge>
-                        ))}
-                      </DetailTechStack>
-                    </>
-                  )}
-                  
-                  {selectedProject.highlights && selectedProject.highlights.length > 0 && (
-                    <>
-                      <h3><FaInfoCircle /> Project Highlights</h3>
-                      <DetailHighlights>
-                        {selectedProject.highlights.map((highlight, index) => (
-                          <DetailHighlight
-                            key={index}
-                            variants={highlightVariants}
-                            custom={index}
-                            initial="hidden"
-                            animate="visible"
-                          >
-                            {highlight}
-                          </DetailHighlight>
-                        ))}
-                      </DetailHighlights>
-                    </>
-                  )}
-                  
-                  <DetailLinks>
-                    {selectedProject.githubUrl && (
-                      <DetailLink
-                        href={selectedProject.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <FaGithub /> View Code
-                      </DetailLink>
-                    )}
-                    
-                    {selectedProject.liveUrl && (
-                      <DetailLink
-                        href={selectedProject.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <FaExternalLinkAlt /> Live Demo
-                      </DetailLink>
-                    )}
-                  </DetailLinks>
-                </DetailBody>
-              </DetailContent>
-            </ProjectDetail>
+              No projects found with the selected technology.
+            </motion.p>
           )}
-        </AnimatePresence>
-      </ProjectsContainer>
-    </Section>
+        </ProjectsList>
+      </ProjectsContent>
+    </ProjectsContainer>
   );
 };
 
-export default ProjectsSection; 
+export default Projects; 

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
-import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { motion, useAnimation } from 'framer-motion';
+import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt, FaPlus, FaMinus } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { selectExperience } from '../../redux/slices/portfolioSlice';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import Section from '../ui/Section';
 import config from '../../utils/configUtils';
 
@@ -255,95 +258,310 @@ const tagVariants = {
   })
 };
 
+// New styled components
+const InteractiveTimelineItem = styled(TimelineItem)`
+  cursor: pointer;
+  
+  &:hover::before {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 8px rgba(76, 161, 175, 0.2);
+    transition: all 0.3s ease;
+  }
+`;
+
+const ExpandButton = styled(motion.button)`
+  background: rgba(76, 161, 175, 0.1);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+  z-index: 5;
+  
+  &:hover {
+    background: rgba(76, 161, 175, 0.2);
+  }
+`;
+
+const DetailAnimation = {
+  hidden: { opacity: 0, height: 0 },
+  visible: { 
+    opacity: 1, 
+    height: 'auto',
+    transition: { 
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
+const ConnectorLine = styled(motion.div)`
+  position: absolute;
+  background: linear-gradient(90deg, 
+    rgba(76, 161, 175, 0.8) 0%, 
+    rgba(76, 161, 175, 0.4) 100%);
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  opacity: 0.6;
+  right: ${props => props.position === 'left' ? '0' : 'auto'};
+  left: ${props => props.position === 'right' ? '0' : 'auto'};
+  width: 50px;
+  
+  @media (max-width: 768px) {
+    left: 0;
+    width: 40px;
+  }
+`;
+
+const TimelinePeriod = styled(motion.div)`
+  position: absolute;
+  top: 5px;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+  right: ${props => props.position === 'left' ? 'calc(50% + 30px)' : 'auto'};
+  left: ${props => props.position === 'right' ? 'calc(50% + 30px)' : 'auto'};
+  
+  @media (max-width: 768px) {
+    left: 40px;
+    right: auto;
+  }
+`;
+
+const YearDot = styled(motion.div)`
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  position: absolute;
+  top: 10px;
+  left: ${props => props.position === 'left' ? 'calc(50% - 8px)' : 'calc(50% - 8px)'};
+  z-index: 3;
+  
+  @media (max-width: 768px) {
+    left: 12px;
+  }
+`;
+
 const ExperienceSection = () => {
-  const experienceData = config.get('experience', {});
-  const jobs = experienceData.jobs || [];
-  const showLogos = experienceData.showCompanyLogos || false;
+  // Fallback to useRef if the custom hook is causing issues
+  const sectionRef = React.useRef(null);
+  const [inView, setInView] = useState(false);
+  
+  // Get experience data from Redux, fallback to config if not available
+  const reduxExperienceData = useSelector(selectExperience);
+  const configExperienceData = config.get('experience', {});
+  
+  // Use Redux data if available, otherwise fallback to config data
+  const experienceData = reduxExperienceData?.jobs?.length ? reduxExperienceData : configExperienceData;
+  
+  const jobs = experienceData?.jobs || [];
+  const showLogos = experienceData?.showCompanyLogos || false;
+  const [expandedJob, setExpandedJob] = useState(null);
+  const controls = useAnimation();
+  
+  // Use Intersection Observer API directly if custom hook is causing issues
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [sectionRef]);
+  
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [inView, controls]);
+  
+  // Start animation immediately if not visible
+  useEffect(() => {
+    // Force animation to start if no jobs are showing
+    if (jobs.length > 0 && !inView) {
+      setTimeout(() => {
+        controls.start('visible');
+      }, 500);
+    }
+  }, [jobs, controls]);
+  
+  const toggleJobExpansion = (index) => {
+    if (expandedJob === index) {
+      setExpandedJob(null);
+    } else {
+      setExpandedJob(index);
+    }
+  };
+  
+  // Extract years for the timeline
+  const timelineYears = jobs.map(job => {
+    const period = job.period || '';
+    return period.split(' - ')[0];
+  });
   
   return (
     <Section
       id="experience"
-      title={experienceData.sectionTitle || "Work Experience"}
-      subtitle={experienceData.sectionSubtitle || "My professional journey"}
+      ref={sectionRef}
+      title={experienceData?.sectionTitle || "Work Experience"}
+      subtitle={experienceData?.sectionSubtitle || "My professional journey"}
       bgColor="var(--background-color)"
     >
       <ExperienceContainer
         as={motion.div}
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
+        animate={controls}
         viewport={{ once: true, amount: 0.1 }}
       >
-        {jobs.map((job, index) => (
-          <TimelineItem 
-            key={index}
-            position={index % 2 === 0 ? 'right' : 'left'}
-            variants={itemVariants}
+        {jobs.length === 0 ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-color)' }}
           >
-            <TimelineContent
-              variants={contentVariants}
-              whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)" }}
-              transition={{ duration: 0.3 }}
-            >
-              {showLogos && job.logoUrl && (
-                <CompanyLogo
-                  initial={{ opacity: 0, rotateY: 90 }}
-                  animate={{ opacity: 1, rotateY: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <img src={job.logoUrl} alt={job.company} />
-                </CompanyLogo>
-              )}
-              
-              <h3>{job.position}</h3>
-              <h4>{job.company}</h4>
-              
-              <JobMeta>
-                <div>
-                  <FaCalendarAlt />
-                  <span>{job.period}</span>
-                </div>
+            No work experience data available.
+          </motion.div>
+        ) : (
+          jobs.map((job, index) => {
+            const isExpanded = expandedJob === index;
+            const position = index % 2 === 0 ? 'right' : 'left';
+            return (
+              <InteractiveTimelineItem 
+                key={index}
+                position={position}
+                variants={itemVariants}
+                onClick={() => toggleJobExpansion(index)}
+              >
+                <YearDot 
+                  position={position} 
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.3 * index, duration: 0.5 }}
+                />
                 
-                {job.location && (
-                  <div>
-                    <FaMapMarkerAlt />
-                    <span>{job.location}</span>
-                  </div>
-                )}
-              </JobMeta>
-              
-              {job.description && <JobDescription>{job.description}</JobDescription>}
-              
-              {job.achievements && job.achievements.length > 0 && (
-                <AchievementsList>
-                  {job.achievements.map((achievement, achievementIndex) => (
-                    <Achievement
-                      key={achievementIndex}
-                      custom={achievementIndex}
-                      variants={achievementVariants}
+                <ConnectorLine 
+                  position={position}
+                  initial={{ width: 0 }}
+                  animate={{ width: 50 }}
+                  transition={{ delay: 0.3 * index, duration: 0.5 }}
+                />
+                
+                <TimelinePeriod
+                  position={position}
+                  initial={{ opacity: 0, x: position === 'right' ? -20 : 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 * index + 0.2, duration: 0.5 }}
+                >
+                  {job.period}
+                </TimelinePeriod>
+                
+                <TimelineContent
+                  variants={contentVariants}
+                  whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ExpandButton
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 * index + 0.5 }}
+                  >
+                    {isExpanded ? <FaMinus /> : <FaPlus />}
+                  </ExpandButton>
+                  
+                  {showLogos && job.logoUrl && (
+                    <CompanyLogo
+                      initial={{ opacity: 0, rotateY: 90 }}
+                      animate={{ opacity: 1, rotateY: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                      {achievement}
-                    </Achievement>
-                  ))}
-                </AchievementsList>
-              )}
-              
-              {job.technologies && job.technologies.length > 0 && (
-                <TechStack>
-                  {job.technologies.map((tech, techIndex) => (
-                    <TechTag
-                      key={techIndex}
-                      custom={techIndex}
-                      variants={tagVariants}
-                    >
-                      {tech}
-                    </TechTag>
-                  ))}
-                </TechStack>
-              )}
-            </TimelineContent>
-          </TimelineItem>
-        ))}
+                      <img src={job.logoUrl} alt={job.company} />
+                    </CompanyLogo>
+                  )}
+                  
+                  <h3>{job.position}</h3>
+                  <h4>{job.company}</h4>
+                  
+                  <JobMeta>
+                    <div>
+                      <FaCalendarAlt />
+                      <span>{job.period}</span>
+                    </div>
+                    
+                    {job.location && (
+                      <div>
+                        <FaMapMarkerAlt />
+                        <span>{job.location}</span>
+                      </div>
+                    )}
+                  </JobMeta>
+                  
+                  {job.description && <JobDescription>{job.description}</JobDescription>}
+                  
+                  <motion.div
+                    initial="hidden"
+                    animate={isExpanded ? "visible" : "hidden"}
+                    variants={DetailAnimation}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    {job.achievements && job.achievements.length > 0 && (
+                      <AchievementsList>
+                        {job.achievements.map((achievement, achievementIndex) => (
+                          <Achievement
+                            key={achievementIndex}
+                            custom={achievementIndex}
+                            variants={achievementVariants}
+                          >
+                            {achievement}
+                          </Achievement>
+                        ))}
+                      </AchievementsList>
+                    )}
+                    
+                    {job.technologies && job.technologies.length > 0 && (
+                      <TechStack>
+                        {job.technologies.map((tech, techIndex) => (
+                          <TechTag
+                            key={techIndex}
+                            custom={techIndex}
+                            variants={tagVariants}
+                          >
+                            {tech}
+                          </TechTag>
+                        ))}
+                      </TechStack>
+                    )}
+                  </motion.div>
+                </TimelineContent>
+              </InteractiveTimelineItem>
+            );
+          })
+        )}
       </ExperienceContainer>
     </Section>
   );
